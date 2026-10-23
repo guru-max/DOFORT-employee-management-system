@@ -1,0 +1,23 @@
+# One-click setup for render.com (Blueprint). Needs the paid "Starter" plan because the database file
+# must live on a persistent disk. A free plan would erase all employee data on every restart.
+services:
+  - type: web
+    name: dofort-employee-form
+    runtime: node
+    plan: starter
+    buildCommand: "echo no build needed"
+    startCommand: "node server.js"
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: DATA_DIR
+        value: /var/data
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: APP_SECRET
+        generateValue: true
+    disk:
+      name: dofort-data
+      mountPath: /var/data
+      sizeGB: 2

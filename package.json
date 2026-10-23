@@ -1,0 +1,10 @@
+{
+  "name": "dofort-employee-system",
+  "version": "1.0.0",
+  "description": "Employee joining form, admin panel and database for DOFORT WORLD MK PVT LTD",
+  "main": "server.js",
+  "scripts": { "start": "node server.js" },
+  "engines": { "node": ">=22.13" },
+  "license": "UNLICENSED",
+  "private": true
+}
